@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-
+[System.Serializable]
 public class MatchTurn : MonoBehaviour 
 {
     public MatchTurnPlayer pScript;
@@ -43,12 +43,12 @@ public class MatchTurn : MonoBehaviour
             if (pScript.player.currentHP <= 0)
             {
                 //Lose game
-                scene.masterSceneFadeOut(1);
+                scene.lose();
             }
             else
             {
                 //Win game
-                scene.masterSceneFadeOut(7);
+                scene.win();
             }
         }
         DoingTurn = false;

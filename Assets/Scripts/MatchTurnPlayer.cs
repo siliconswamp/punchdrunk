@@ -9,7 +9,13 @@ public class MatchTurnPlayer : MonoBehaviour
     public PlayerObject player;
     public EnemyObject enemy;
     private MatchTurn turn;
-    public BaseAttack bA; //what the attacks call upon
+    private MatchTurnEnemy MTE;
+    private BaseAttack bA; //what the attacks call upon
+
+    public float HPpercentage;
+    public float staminaPercentage;
+    public Image PlayerHPProgressBar;
+    public Image PlayerStaminaProgressBar;
 
     public Button jab, cross, recover, special;//can be renamed
 
@@ -40,23 +46,36 @@ public class MatchTurnPlayer : MonoBehaviour
 
             }
         }
+        selectAction();
+        doAction();
+        yieldPTurn();
     }
 
-    public void selectAction()
+    public void playerUpdateBars()
+    {
+        HPpercentage = (float)player.currentHP / player.baseHP;
+        PlayerHPProgressBar.fillAmount = HPpercentage;
+        staminaPercentage = (float)player.currentStamina / player.currentStamina;
+        PlayerStaminaProgressBar.fillAmount = staminaPercentage;
+    }
+
+    void selectAction()
     {
         //moveset.doMove(moveNum);
         //Player chooses action to do
         ChooseAction();
     }
 
-    public void doAction()
+    void doAction()
     {
         //update enemy and player stats
         //include evasion and guard stuff here
         enemy.currentHP -= bA.attackDmg;
         player.currentStamina -= bA.attackStm;
+        playerUpdateBars();
+        MTE.enemyUpdateBars();
     }
-    public void yieldPTurn()
+    void yieldPTurn()
     {
          turn.PlayerTurn = false;
          turn.EnemyTurn = true;
@@ -65,6 +84,7 @@ public class MatchTurnPlayer : MonoBehaviour
 
 
     void ChooseAction() //Does different tasks based on what user chooses
+        //need to rename
     {
         jab.onClick.AddListener(jabTask);
         cross.onClick.AddListener(crossTask);

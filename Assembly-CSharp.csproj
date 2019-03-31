@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseAttack.cs" />
     <Compile Include="Assets\Scripts\BehaviorTree\BehaviorTree.cs" />
     <Compile Include="Assets\Scripts\BehaviorTree\Leaf.cs" />
     <Compile Include="Assets\Scripts\BehaviorTree\Node.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\MatchTurnEnemy.cs" />
     <Compile Include="Assets\Scripts\MatchTurnPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerObject.cs" />
+    <Compile Include="Assets\Scripts\SceneChanger.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/donqv/Documents/Unity/Fight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

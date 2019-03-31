@@ -4,14 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+[System.Serializable]
 public class PlayerObject : MonoBehaviour
 {
-    public SavePrefs prefs;
-    public float HPpercentage;
-    public float staminaPercentage;
-    public Image HPProgressBar;
-    public Image StaminaProgressBar;
-
     public bool isDead;
     public bool Guard;
     public bool Evasion;
@@ -30,11 +25,4 @@ public class PlayerObject : MonoBehaviour
         currentStamina = baseStamina;
     }
 
-    public void UpdateBars()
-    {
-        HPpercentage = (float)currentHP / baseHP;
-        HPProgressBar.fillAmount = HPpercentage;
-        staminaPercentage = (float)currentStamina / currentStamina;
-        StaminaProgressBar.fillAmount = staminaPercentage;
-    }
 }
