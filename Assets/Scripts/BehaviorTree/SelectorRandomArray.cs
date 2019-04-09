@@ -24,7 +24,7 @@ public class SelectorRandomArray : Node
         if (state == EnemyBehaviorTree.NodeState.COMPUTING)
         {
             Node chosen = ChooseByRandom(leafArrayAndChance);
-
+            
             tree.NodeAndState[this] = EnemyBehaviorTree.NodeState.WAITING;
             tree.NodeAndState[chosen] = EnemyBehaviorTree.NodeState.IN_QUEUE;
 
@@ -50,15 +50,16 @@ public class SelectorRandomArray : Node
 
     private static System.Random rand = new System.Random();
 
-    public static Node ChooseByRandom(Dictionary<Node, float> set)
+    public Node ChooseByRandom(Dictionary<Node, float> set)
     {
         var r = rand.NextDouble();
+ 
         foreach (var item in set)
         {
             if (r < item.Value)
                 return item.Key;
             r -= item.Value;
         }
-        throw new InvalidOperationException("Probabilities must add up to 1.");
+        throw new InvalidOperationException("Probabilities must add up to 1.");        
     }
 }

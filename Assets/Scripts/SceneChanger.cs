@@ -5,6 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public void SceneSelector(string scene)
+    {
+        if (scene.Equals("main"))
+        {
+            SceneManager.LoadScene("MAIN");
+        }
+
+        if (scene.Equals("play"))
+        {
+            SceneManager.LoadScene("FIGHT");
+        }
+
+        if (scene.Equals("exit"))
+        {
+            Application.Quit();
+        }
+    }
     public void mainMenu()
     {
         SceneManager.LoadScene("MAIN");
@@ -17,6 +34,7 @@ public class SceneChanger : MonoBehaviour
 
     public void lose()
     {
+        Debug.Log("Player Lost Scene");
         SceneManager.LoadScene("LOSE");
     }
 

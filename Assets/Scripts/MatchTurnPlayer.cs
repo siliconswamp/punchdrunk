@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,16 +8,18 @@ public class MatchTurnPlayer : MonoBehaviour
 {
     public PlayerObject player;
     public EnemyObject enemy;
-    private MatchTurn turn;
-    private MatchTurnEnemy MTE;
-    private BaseAttack bA; //what the attacks call upon
+    public MatchTurn turn;
+    public MatchTurnEnemy MTE;
+    public BaseAttack bA; //what the attacks call upon
+    public SceneChanger scene;
 
-    public float HPpercentage;
-    public float staminaPercentage;
+    private float HPpercentage;
+    private float staminaPercentage;
     public Image PlayerHPProgressBar;
     public Image PlayerStaminaProgressBar;
+    public Text output;
 
-    public Button jab, cross, recover, special;//can be renamed
+    public Button atck1, atck2, recover, special, menu;//can be renamed
 
 
     public void doPlayerTurn()
@@ -46,20 +48,20 @@ public class MatchTurnPlayer : MonoBehaviour
 
             }
         }
-        selectAction();
-        doAction();
-        yieldPTurn();
+        //selectAction();
+        //doAction();
+        //yieldPTurn();
     }
 
     public void playerUpdateBars()
     {
         HPpercentage = (float)player.currentHP / player.baseHP;
         PlayerHPProgressBar.fillAmount = HPpercentage;
-        staminaPercentage = (float)player.currentStamina / player.currentStamina;
+        staminaPercentage = (float)player.currentStamina / player.baseStamina;
         PlayerStaminaProgressBar.fillAmount = staminaPercentage;
     }
 
-    void selectAction()
+    /*void selectAction()
     {
         //moveset.doMove(moveNum);
         //Player chooses action to do
@@ -74,39 +76,177 @@ public class MatchTurnPlayer : MonoBehaviour
         player.currentStamina -= bA.attackStm;
         playerUpdateBars();
         MTE.enemyUpdateBars();
+    }*/
+
+    //****** might want to rename function *********
+    public void playerSelect(int move)
+    {
+
+        var rand = Random.Range(0, 100);
+        Debug.Log("The random value is: " + rand);
+
+        if(move == 1)
+        {
+            enemy.currentHP -= 5;
+            player.currentStamina += 10;
+            Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
+            Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
+            playerUpdateBars();
+            MTE.enemyUpdateBars();
+        }
+
+        if(move == 2)
+        {
+
+
+            if (rand > 10)
+            {
+                if (canDoMove(15) == false)
+                {
+                    Debug.Log("Not enough player stamina");
+                    output.text = "Not enough stamina to perform action!";
+                    yieldPTurn();
+                }
+                else
+                {
+                    enemy.currentHP -= 10;
+                    player.currentStamina -= 15;
+                    Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
+                    Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
+                    playerUpdateBars();
+                    MTE.enemyUpdateBars();
+                }
+            }
+
+            else
+            {
+                Debug.Log("Player Missed!");
+                output.text = "You missed!";
+                yieldPTurn();
+            }
+        }
+
+        if(move == 3)
+        {
+            /*if (player.currentStamina < player.baseStamina)
+        {
+            player.currentStamina += 30;
+        }*/
+
+            if (rand > 50)
+            {
+                if (canDoMove(30) == false)
+                {
+                    Debug.Log("Not enough player stamina");
+                    output.text = "Not enough stamina to perform action!";
+                    yieldPTurn();
+                }
+                else
+                {
+                    if (player.currentHP < player.baseHP)
+                    {
+                        player.currentHP += 30;
+                        player.currentStamina -= 30;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("Player Missed!");
+                output.text = "You missed!";
+                yieldPTurn();
+            }
+       
+        }
+
+        if (rand > 60)
+        {
+            if (move == 4)
+            {
+                if (canDoMove(35) == false)
+                {
+                    Debug.Log("Not enough player stamina");
+                    output.text = "Not enough stamina to perform action!";
+                    yieldPTurn();
+                }
+                else
+                {
+                    enemy.currentHP -= 40;
+                    player.currentStamina -= 35;
+                    Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
+                    Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
+                    playerUpdateBars();
+                    MTE.enemyUpdateBars();
+                }
+
+            }
+        }
+
+        if (move == 5)
+        {
+            menuTask();
+        }
+
+        else
+        {
+            Debug.Log("Player Missed!");
+            output.text = "You missed!";
+            yieldPTurn();
+        }
+
+        yieldPTurn();
     }
+
+    bool canDoMove(float stmAmt) //checks to see if there is enough stamina
+    {
+        float stm;
+        stm = player.currentStamina - stmAmt;
+        if (stm <= 0)
+        {
+            return false;
+        }
+        return true;
+
+    }
+
     void yieldPTurn()
     {
-         turn.PlayerTurn = false;
-         turn.EnemyTurn = true;
+        output.text = "";
+        turn.PlayerTurn = false;
+        turn.EnemyTurn = true;
 
     }
 
-
+    /*
     void ChooseAction() //Does different tasks based on what user chooses
         //need to rename
     {
-        jab.onClick.AddListener(jabTask);
-        cross.onClick.AddListener(crossTask);
+        Debug.Log("Choose Attack!");
+        atck1.onClick.AddListener(atck1Task);
+        atck2.onClick.AddListener(atck2Task);
         recover.onClick.AddListener(recoverTask);
         special.onClick.AddListener(specialTask);
+        menu.onClick.AddListener(menuTask);
     }
 
     //Various Tasks relative to each button
 
-    void jabTask()
+        
+    void atck1Task()
     {
         bA.attackName = "Jab";
-        bA.playAnimate.SetTrigger("Jab");
+        //Need to rename attack
+        bA.playAnimate.SetTrigger("atck1");
         bA.description = "Simple attack that deals 10 damage to enemy and does not affect stamina";
         bA.attackDmg = 10;
         bA.attackStm = 0;
     }
 
-    void crossTask()
+    void atck2Task()
     {
-        bA.attackName = "Cross";
-        bA.playAnimate.SetTrigger("Cross");
+        //bA.attackName = "Cross";
+        //Need to rename attack
+        //bA.playAnimate.SetTrigger("atck2");
         bA.description = "Medium attack that deals 20 damage to enemy and reduces stamina 25 points";
         bA.attackDmg = 20;
         bA.attackStm = 25;
@@ -148,6 +288,12 @@ public class MatchTurnPlayer : MonoBehaviour
             Debug.Log("There is not enough stamina for this move");
 
         }
+    }*/
+
+
+    void menuTask()
+    {
+        scene.mainMenu();
     }
 
 }

@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 653d8979b253fee44912a3434fa78e26
+  productGUID: f18f13562fe2f824980503e3d404b765
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Fight1
+  productName: FightV4-4
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -586,9 +586,9 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: d8de239e-b7f3-49a1-b18f-e5e321451c20
+  cloudProjectId: f6a9ae7b-6653-491c-bd66-f86c02b5b76f
   framebufferDepthMemorylessMode: 0
-  projectName: Fight1
+  projectName: FightV4-4
   organizationId: dvu22
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

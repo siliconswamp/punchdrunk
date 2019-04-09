@@ -116,8 +116,14 @@ public class EnemyBehaviorTree
             if (afterState == NodeState.IN_QUEUE)
                 NodeAndState[currentNode] = NodeState.SUCCESS;
             Debug.Log("End " + currentNode);
-            if (currentNode.Children() != null) 
-                RunBehaviorTree(); // recursively calls function when node has child to process
+            
+            if (currentNode.Children() != null)
+            {
+                if (currentNode.Children().Count == 1) // For EnemySkipTurn and charging moves
+                    return result;
+                else
+                    RunBehaviorTree(); // recursively calls function when node has child to process
+            }
             else
                 return result;
         }

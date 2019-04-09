@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,7 @@ public class MatchTurn : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("matchturn start");
         PlayerTurn = false;
         EnemyTurn = false;
         DoingTurn = false;

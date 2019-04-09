@@ -23,10 +23,10 @@ public class SelectorArray : Node
             return new Result(true);
 
         int resultInt = conditionFunction(tree).IntegerResult;
-
+        Debug.Log("ResultInt is " + resultInt);
         if (state == EnemyBehaviorTree.NodeState.RUNNING)
             return new Result(true);
-
+        
         for (var i = 0; i < leafArray.Count(); i++)
         {
             if (i == resultInt)
@@ -34,7 +34,7 @@ public class SelectorArray : Node
             else
                 tree.NodeAndState[leafArray[i]] = EnemyBehaviorTree.NodeState.IGNORE;
         }
-
+        
         return new Result(resultInt);
     }
 
