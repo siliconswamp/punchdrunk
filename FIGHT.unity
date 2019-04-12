@@ -165,6 +165,16 @@ MonoBehaviour:
   currentHP: 0
   baseStamina: 100
   currentStamina: 0
+  p1: 0
+  p2: 0
+  a1h: 0
+  a1s: 0
+  a2h: 0
+  a2s: 0
+  recovh: 0
+  recovs: 0
+  specialh: 0
+  specials: 0
 --- !u!95 &177046178
 Animator:
   serializedVersion: 3
@@ -856,6 +866,75 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1968490857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 935619810757282242, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_Name
+      value: GlobalObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 147.81389
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 47.286266
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6226081
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 935619810757282252, guid: 6ba45ea95409fb2469d9b73c157cff27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ba45ea95409fb2469d9b73c157cff27, type: 3}
 --- !u!1 &2103206255
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +946,7 @@ GameObject:
   - component: {fileID: 2103206256}
   - component: {fileID: 2103206260}
   - component: {fileID: 2103206259}
+  - component: {fileID: 2103206261}
   - component: {fileID: 2103206257}
   - component: {fileID: 2103206258}
   m_Layer: 0
@@ -960,6 +1040,10 @@ MonoBehaviour:
   EnemyTurn: 0
   DoingTurn: 0
   End: 0
+  e1: 1
+  e2: 0
+  e3: 0
+  won: 0
 --- !u!114 &2103206260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +1058,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutUIImage: {fileID: 1730255514}
   fadeSpeed: 0.8
+--- !u!114 &2103206261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103206255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde237f21d1018741bad73017c6dc472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 177046177}
+  turn: {fileID: 2103206259}
 --- !u!1001 &2924410245727325254
 PrefabInstance:
   m_ObjectHideFlags: 0

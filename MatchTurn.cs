@@ -9,59 +9,75 @@ public class MatchTurn : MonoBehaviour
 {
     public MatchTurnPlayer pScript;
     public MatchTurnEnemy eScript;
-    public PlayerObject player;
-    public EnemyObject enemy;
     public SceneChanger scene;
+    //public Animator player_animate;
 
-    public bool PlayerTurn, EnemyTurn;
-    public object prevTurn;
+    public bool PlayerTurn, EnemyTurn, DoingTurn, End;
+    public bool e1, e2, e3, won;
 
-    public void Start()
+    void Start()
     {
-        if (prevTurn == null)
-        {
-            setUpGame();
-        }
-        doTurn();
-    }
-
-    public void setUpGame()
-    {
-        PlayerTurn = true;
+        Debug.Log("matchturn start");
+        PlayerTurn = false;
         EnemyTurn = false;
+        DoingTurn = false;
+        End = false;
     }
 
     public void doTurn()
     {
-        if (PlayerTurn)
+        if (!End && !EnemyTurn)
         {
-            pScript.doPlayerTurn();
-            prevTurn = pScript;
+            if (!PlayerTurn)
+            {
+                PlayerTurn = true;
+                
+                pScript.doPlayerTurn();
+                
+            }
         }
-        else if (EnemyTurn)
+        if (!End && !PlayerTurn)
         {
+            EnemyTurn = true;
             eScript.doEnemyTurn();
-            prevTurn = eScript;
+            EnemyTurn = false;
         }
-        else if (PlayerTurn == false && EnemyTurn == false)
+        if (End)
         {
-            if (player.isDead)
+            if (pScript.player.currentHP <= 0)
             {
                 //Lose game
+                won = false;
                 scene.lose();
             }
-            else if (enemy.isDead)
+            else
             {
                 //Win game
+                won = true;
                 scene.win();
             }
         }
+        DoingTurn = false;
     }
 
 
     // Update is called once per frame
-    public void Update()
+    void Update()
     {
+        if (End)
+        {
+            doTurn();
 
+        }
+        if (DoingTurn)
+        {
+            doTurn();
+        }
+        else if (!DoingTurn && !End)
+        {
+            DoingTurn = true;
+            doTurn();
+        }
     }
+
 }
