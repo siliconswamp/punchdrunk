@@ -206,13 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a483f827f2c5f4684214216d6f966f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1: 0
-  p2: 0
   scene: {fileID: 66505587}
-  GC: {fileID: 1085506471}
   popUI: {fileID: 0}
   p1b: {fileID: 745994942}
   p2b: {fileID: 1924900464}
+  p1: 0
+  p2: 0
 --- !u!114 &66505589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,18 +928,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba45ea95409fb2469d9b73c157cff27, type: 3}
---- !u!114 &1085506471 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 935619810757282243, guid: 6ba45ea95409fb2469d9b73c157cff27,
-    type: 3}
-  m_PrefabInstance: {fileID: 1085506470}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17e470b0c6a5ea498723a80b8ba52d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1090817475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,13 +998,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Hawking
+  m_Text: 'Stephen Hawking
 
 
     EMF: Light blow that increases stamina
 
 
-    Spacetime: Medium blow
+    DYING STAR: Medium blow
 
 
     Charge: Recovers 30 HP
@@ -1272,13 +1259,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Einstein
+  m_Text: 'Albert Einstein
 
 
     EMF: Light blow that increases stamina
 
 
-    Spacetime: Medium blow
+    DYING STAR: Medium blow
 
 
     Charge: Recovers 30 HP

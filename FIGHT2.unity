@@ -619,7 +619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72068128, guid: 04814b18d2b59fa4a8a1578212cf5bc8, type: 3}
       propertyPath: m_Text
-      value: SPACETIME
+      value: DYING STAR
       objectReference: {fileID: 0}
     - target: {fileID: 500074426, guid: 04814b18d2b59fa4a8a1578212cf5bc8, type: 3}
       propertyPath: m_Text
