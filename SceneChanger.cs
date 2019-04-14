@@ -12,17 +12,7 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("MAIN");
         }
 
-        if (scene.Equals("play"))
-        {
-            SceneManager.LoadScene("FIGHT");
-        }
-
-        if (scene.Equals("instruct"))
-        {
-            SceneManager.LoadScene("INSTRUCT");
-        }
-
-        if (scene.Equals("character"))
+        if (scene.Equals("charSel"))
         {
             SceneManager.LoadScene("CHARSELECT");
         }
@@ -31,6 +21,12 @@ public class SceneChanger : MonoBehaviour
         {
             SceneManager.LoadScene("TROPHY");
         }
+
+        if (scene.Equals("play1"))
+        {
+            SceneManager.LoadScene("FIGHT");
+        }
+
 
         if (scene.Equals("round2"))
         {
@@ -41,7 +37,21 @@ public class SceneChanger : MonoBehaviour
         {
             SceneManager.LoadScene("FIGHT3");
         }
-        
+
+        if (scene.Equals("play2"))
+        {
+            SceneManager.LoadScene("2FIGHT");
+        }
+
+        if (scene.Equals("2round2"))
+        {
+            SceneManager.LoadScene("2FIGHT2");
+        }
+
+        if (scene.Equals("2round3"))
+        {
+            SceneManager.LoadScene("2FIGHT3");
+        }
 
         if (scene.Equals("exit"))
         {
@@ -60,12 +70,17 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("FIGHT");
     }
 
+    public void battle2()
+    {
+        SceneManager.LoadScene("2FIGHT");
+    }
+
     public void help()
     {
         SceneManager.LoadScene("INSTRUCT");
     }
 
-    public void charsel()
+    public void charSel()
     {
         SceneManager.LoadScene("CHARSELECT");
     }

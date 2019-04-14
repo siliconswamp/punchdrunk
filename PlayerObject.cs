@@ -44,7 +44,7 @@ public class PlayerObject : MonoBehaviour
 
     void populateP1()
     {
-        a1h = 100;//5
+        a1h = 5;//5
         a1s = 10;//increases stamina
         a2h = 10;
         a2s = 15;//decreases stamina
@@ -56,8 +56,7 @@ public class PlayerObject : MonoBehaviour
 
     void populateP2()
     {
-        //Need to change values
-        a1h = 100;//10
+        a1h = 10;//10
         a1s = 15;//increases stamina
         a2h = 20;
         a2s = 15;//decreases stamina

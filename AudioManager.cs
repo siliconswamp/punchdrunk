@@ -33,6 +33,8 @@ public class AudioManager : MonoBehaviour
     }
 }
 
+//Script and Sound Object done based on instructions found here: https://support.unity3d.com/hc/en-us/articles/206116056-How-do-I-use-an-Audio-Source-in-a-script-
+
 
 //Previous Version
 /*

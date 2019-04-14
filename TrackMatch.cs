@@ -64,19 +64,4 @@ public class TrackMatch : MonoBehaviour
 
 
     }
-
-
-    public void feats()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (GlobalControl.Instance.array [i, j] == true)
-                {
-                    //do stuff with achievements button
-                }
-            }
-        }
-    }
 }

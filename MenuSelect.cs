@@ -21,11 +21,11 @@ public class MenuSelect : MonoBehaviour
 
     void goToMatch()
     {
-        scene.battle();
+       scene.battle();
     }
 
     void exitGame()
     {
-        scene.quit();
+       scene.quit();
     }
 }

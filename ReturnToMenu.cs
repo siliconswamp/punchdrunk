@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ReturnToMenu : MonoBehaviour
 {
-    public SceneChanger scene;
+    private SceneChanger scene;
     public Button menu;
 
     void Start()
@@ -20,6 +20,6 @@ public class ReturnToMenu : MonoBehaviour
 
     void goToMenu()
     {
-        scene.mainMenu();
+        //scene.mainMenu();
     }
 }
