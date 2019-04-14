@@ -16,7 +16,6 @@ public class PlayerObject : MonoBehaviour
 
     [HideInInspector]
     public float baseHP = 200, currentHP, baseStamina = 100, currentStamina;
-    public bool p1, p2;
     public float a1h, a1s, a2h, a2s, recovh, recovs, specialh, specials;
 
     //lambrogini, leg lock, dungeon slam
@@ -28,11 +27,16 @@ public class PlayerObject : MonoBehaviour
         Debug.Log(currentHP);
         currentHP = Mathf.Clamp(currentHP, 0, 200);
         currentStamina = Mathf.Clamp(currentStamina, 0, 100);
-        if (p1)
+        getPlayer();
+    }
+
+    void getPlayer()
+    {
+        if (GlobalControl.Instance.p1 == true)
         {
             populateP1();
         }
-        else
+        else if (GlobalControl.Instance.p2 == true)
         {
             populateP2();
         }
@@ -40,7 +44,7 @@ public class PlayerObject : MonoBehaviour
 
     void populateP1()
     {
-        a1h = 5;
+        a1h = 100;//5
         a1s = 10;//increases stamina
         a2h = 10;
         a2s = 15;//decreases stamina
@@ -53,13 +57,13 @@ public class PlayerObject : MonoBehaviour
     void populateP2()
     {
         //Need to change values
-        a1h = 5;
-        a1s = 10;//increases stamina
-        a2h = 10;
+        a1h = 100;//10
+        a1s = 15;//increases stamina
+        a2h = 20;
         a2s = 15;//decreases stamina
-        recovh = 30;//increases health
+        recovh = 40;//increases health
         recovs = 30;//deacreases stamina
-        specialh = 40;
+        specialh = 50;
         specials = 35;//decreases stamina
     }
 

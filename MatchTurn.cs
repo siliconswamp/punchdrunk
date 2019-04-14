@@ -9,6 +9,7 @@ public class MatchTurn : MonoBehaviour
 {
     public MatchTurnPlayer pScript;
     public MatchTurnEnemy eScript;
+    public TrackMatch TM;
     public SceneChanger scene;
     //public Animator player_animate;
 
@@ -54,6 +55,7 @@ public class MatchTurn : MonoBehaviour
             {
                 //Win game
                 won = true;
+                TM.updateMatrix();
                 scene.win();
             }
         }

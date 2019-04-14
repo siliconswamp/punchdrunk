@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 [System.Serializable]
 public class MatchTurnPlayer : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class MatchTurnPlayer : MonoBehaviour
     public EnemyObject enemy;
     public MatchTurn turn;
     public MatchTurnEnemy MTE;
-    public BaseAttack bA; //what the attacks call upon
     public SceneChanger scene;
+    public Animator player_animate;
 
     private float HPpercentage;
     private float staminaPercentage;
@@ -32,6 +33,7 @@ public class MatchTurnPlayer : MonoBehaviour
             turn.End = true;
             turn.PlayerTurn = false;
             turn.EnemyTurn = false;
+            turn.won = false;
 
         }
         else
@@ -39,13 +41,12 @@ public class MatchTurnPlayer : MonoBehaviour
             player.Guard = false;
             if (enemy.currentHP <= 0)
             {
+                turn.won = true;
                 //enemy.isDead = true;
                 turn.End = true;
                 Debug.Log("match end = " + turn.End);
                 turn.PlayerTurn = false;
                 turn.EnemyTurn = false;
-
-
             }
         }
         //selectAction();
@@ -78,21 +79,48 @@ public class MatchTurnPlayer : MonoBehaviour
         MTE.enemyUpdateBars();
     }*/
 
+    void moveTowards() {
+        float speed = 20.0f;
+        //MOVE ON ATTACK
+        player.transform.position = Vector2.MoveTowards(player.transform.position, enemy.transform.position, speed);
+    }
+
+    void updateSize() {
+        if(player.currentHP > enemy.currentHP) {
+            player.transform.localScale = new Vector2(200.0f, 200.0f);
+            enemy.transform.localScale = new Vector2(100.0f, 100.0f);
+
+        }
+
+        if(enemy.currentHP > player.currentHP) {
+            enemy.transform.localScale = new Vector2(200.0f, 200.0f);
+            player.transform.localScale = new Vector2(100.0f, 100.0f);
+        }
+    }
+
     //****** might want to rename function *********
     public void playerSelect(int move)
     {
-
         var rand = Random.Range(0, 100);
         Debug.Log("The random value is: " + rand);
-
-        if(move == 1)
+        
+        if (player.isPoisoned)
         {
-            enemy.currentHP -= 5;
-            player.currentStamina += 10;
+            player.currentHP -= 5;
+            playerUpdateBars();
+        }
+
+        if (move == 1)
+        {
+            player_animate.SetTrigger("player_blackhole_attack");
+            enemy.currentHP -= player.a1h;
+            player.currentStamina += player.a1s;
             Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
             Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
             playerUpdateBars();
             MTE.enemyUpdateBars();
+            moveTowards();
+            StartCoroutine(waitTime());
         }
 
         if(move == 2)
@@ -109,12 +137,16 @@ public class MatchTurnPlayer : MonoBehaviour
                 }
                 else
                 {
-                    enemy.currentHP -= 10;
-                    player.currentStamina -= 15;
+                    player_animate.SetTrigger("player_blackhole_attack");
+                    enemy.currentHP -= player.a2h;
+                    player.currentStamina -= player.a2s;
+
                     Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
                     Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
                     playerUpdateBars();
                     MTE.enemyUpdateBars();
+                    moveTowards();
+                    StartCoroutine(waitTime());
                 }
             }
 
@@ -133,7 +165,7 @@ public class MatchTurnPlayer : MonoBehaviour
             player.currentStamina += 30;
         }*/
 
-            if (rand > 50)
+            if (rand > 10)
             {
                 if (canDoMove(30) == false)
                 {
@@ -145,8 +177,11 @@ public class MatchTurnPlayer : MonoBehaviour
                 {
                     if (player.currentHP < player.baseHP)
                     {
-                        player.currentHP += 30;
-                        player.currentStamina -= 30;
+                        player_animate.SetTrigger("player_blackhole_attack");
+                        player.currentHP += player.recovh;
+                        player.currentStamina -= player.recovs;
+                        moveTowards();
+                        StartCoroutine(waitTime());
                     }
                 }
             }
@@ -159,9 +194,9 @@ public class MatchTurnPlayer : MonoBehaviour
        
         }
 
-        if (rand > 60)
+        if (move == 4)   
         {
-            if (move == 4)
+            if (rand > 60)
             {
                 if (canDoMove(35) == false)
                 {
@@ -171,14 +206,24 @@ public class MatchTurnPlayer : MonoBehaviour
                 }
                 else
                 {
-                    enemy.currentHP -= 40;
-                    player.currentStamina -= 35;
+                    player_animate.SetTrigger("player_blackhole_attack");
+                    enemy.currentHP -= player.specialh;
+                    player.currentStamina -= player.specials;
                     Debug.Log("Player Attacks... enemy hp: " + enemy.currentHP);
                     Debug.Log("Player Attacks... player stamina: " + player.currentStamina);
                     playerUpdateBars();
                     MTE.enemyUpdateBars();
+                    moveTowards();
+                    StartCoroutine(waitTime());
                 }
 
+            }
+
+            else
+            {
+                Debug.Log("Player Missed!");
+                output.text = "You missed!";
+                yieldPTurn();
             }
         }
 
@@ -187,14 +232,6 @@ public class MatchTurnPlayer : MonoBehaviour
             menuTask();
         }
 
-        else
-        {
-            Debug.Log("Player Missed!");
-            output.text = "You missed!";
-            yieldPTurn();
-        }
-
-        yieldPTurn();
     }
 
     bool canDoMove(float stmAmt) //checks to see if there is enough stamina
@@ -212,88 +249,39 @@ public class MatchTurnPlayer : MonoBehaviour
     void yieldPTurn()
     {
         output.text = "";
-        turn.PlayerTurn = false;
-        turn.EnemyTurn = true;
-
-    }
-
-    /*
-    void ChooseAction() //Does different tasks based on what user chooses
-        //need to rename
-    {
-        Debug.Log("Choose Attack!");
-        atck1.onClick.AddListener(atck1Task);
-        atck2.onClick.AddListener(atck2Task);
-        recover.onClick.AddListener(recoverTask);
-        special.onClick.AddListener(specialTask);
-        menu.onClick.AddListener(menuTask);
-    }
-
-    //Various Tasks relative to each button
-
         
-    void atck1Task()
-    {
-        bA.attackName = "Jab";
-        //Need to rename attack
-        bA.playAnimate.SetTrigger("atck1");
-        bA.description = "Simple attack that deals 10 damage to enemy and does not affect stamina";
-        bA.attackDmg = 10;
-        bA.attackStm = 0;
+        turn.PlayerTurn = false;
+       
+        turn.EnemyTurn = true;
     }
 
-    void atck2Task()
-    {
-        //bA.attackName = "Cross";
-        //Need to rename attack
-        //bA.playAnimate.SetTrigger("atck2");
-        bA.description = "Medium attack that deals 20 damage to enemy and reduces stamina 25 points";
-        bA.attackDmg = 20;
-        bA.attackStm = 25;
-        if (player.currentStamina < bA.attackStm)
-        {
-            //Need to display that there is not enough stamina
-            Debug.Log("There is not enough stamina for this move");
 
-        }
+    IEnumerator waitTime()
+    {
+        atck1.interactable = false;
+        atck2.interactable = false;
+        recover.interactable = false;
+        special.interactable = false;
+        menu.interactable = false;
+        yield return new WaitForSeconds(2);
+        yieldPTurn();
     }
-
-    void recoverTask()
-    {
-        if (player.currentStamina < player.baseStamina)
-        {
-            player.currentStamina += 30;
-        }
-        if (player.currentHP < player.baseHP)
-        {
-            player.currentHP += 30;
-        }
-        bA.attackName = "Recover";
-        bA.playAnimate.SetTrigger("Recover");
-        bA.description = "Recovers 30 health and stamina points";
-        bA.attackDmg = 0;
-        bA.attackStm = 0;
-    }
-
-    void specialTask()
-    {
-        bA.attackName = "Special";
-        bA.playAnimate.SetTrigger("Special");
-        bA.description = "Difficult attack that deals 40 damage to enemy and reduces stamina 35 points";
-        bA.attackDmg = 40;
-        bA.attackStm = 35;
-        if (player.currentStamina < bA.attackStm)
-        {
-            //Need to display that there is not enough stamina
-            Debug.Log("There is not enough stamina for this move");
-
-        }
-    }*/
-
 
     void menuTask()
     {
         scene.mainMenu();
+    }
+
+    public void Start()
+    {
+        atck1.interactable = true;
+        atck2.interactable = true;
+        recover.interactable = true;
+        special.interactable = true;
+        menu.interactable = true;
+    }
+    public void Update() {
+        updateSize();
     }
 
 }

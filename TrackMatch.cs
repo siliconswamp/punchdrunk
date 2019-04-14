@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class TrackMatch : MonoBehaviour
 {
-    
-    public bool[,] array = new bool[2, 3];
-    public PlayerObject player;
     public MatchTurn turn;
 
     // Start is called before the first frame update
     void Start()
     {
-        array = GlobalControl.Instance.array;
+
     }
 
     // Update is called once per frame
@@ -23,54 +20,51 @@ public class TrackMatch : MonoBehaviour
 
     public void updateMatrix()
     {
-     if (player.p1)
+        if (GlobalControl.Instance.p1 == true)
         {
             if (turn.won && turn.e1)
-            {
-                array[0, 0] = true;
+            {                
+                GlobalControl.Instance.array[0, 0] = true;
+                GlobalControl.Instance.nextRound = "f2";
             }
 
             if (turn.won && turn.e2)
             {
-                array[0, 1] = true;
+                GlobalControl.Instance.array[0, 1] = true;
+                GlobalControl.Instance.nextRound = "f3";
             }
 
             if (turn.won && turn.e3)
             {
-                array[0, 2] = true;
+                GlobalControl.Instance.array[0, 2] = true;
+                GlobalControl.Instance.nextRound = "main";
             }
         }
 
-        else if (player.p2)
+        else if (GlobalControl.Instance.p2)
         {
             if (turn.won && turn.e1)
             {
-                array[1, 0] = true;
+                GlobalControl.Instance.array[1, 0] = true;
+                GlobalControl.Instance.nextRound = "f22";
             }
 
             if (turn.won && turn.e2)
             {
-                array[1, 1] = true;
+                GlobalControl.Instance.array[1, 1] = true;
+                GlobalControl.Instance.nextRound = "f23";
             }
 
             if (turn.won && turn.e3)
             {
-                array[1, 2] = true;
+                GlobalControl.Instance.array[1, 2] = true;
+                GlobalControl.Instance.nextRound = "main";
             }
         }
+
+
     }
 
-    public bool charSelectAvailable()
-    {
-        if ((array[0,0]==true) && (array[0, 1]==true) && (array[0, 2]==true))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     public void feats()
     {
@@ -78,18 +72,11 @@ public class TrackMatch : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                if (array [i, j] == true)
+                if (GlobalControl.Instance.array [i, j] == true)
                 {
                     //do stuff with achievements button
                 }
             }
         }
     }
-
-    public void Save()
-    {
-        GlobalControl.Instance.array = array;
-    }
-
-
 }
