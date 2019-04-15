@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class populateUI : MonoBehaviour
 {
     public Image p1Img, p2Img;
-    public Text p1Txt, p2Txt;
+    public Text p1Txt, p2Txt, instruct;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,8 @@ public class populateUI : MonoBehaviour
         p1Txt.enabled = false;
         p2Img.enabled = false;
         p2Txt.enabled = false;
+        instruct.enabled = false;
+
     }
     public void turnOnHoverP1()
     {
@@ -27,11 +29,17 @@ public class populateUI : MonoBehaviour
         p1Txt.enabled = false;
         p2Img.enabled = false;
         p2Txt.enabled = false;
+        instruct.enabled = false;
     }
 
     public void turnOnHoverP2()
     {
         p2Img.enabled = true;
         p2Txt.enabled = true;
+    }
+
+    public void turnOnHoverInstruct()
+    {
+        instruct.enabled = true;
     }
 }
