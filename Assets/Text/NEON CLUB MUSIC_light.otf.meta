@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: bc90d055297bce74bb33036b9c53e870
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: NEON CLUB MUSIC
+  fontNames:
+  - NEON CLUB MUSIC
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b4b9c870af92be7409fe5ae75763acde, type: 3}
+  - {fileID: 12800000, guid: 3c1bdfdaa6c75a846b309c55b00a0eea, type: 3}
+  - {fileID: 12800000, guid: 11e4440c7de70e84cab7ca0705628f6f, type: 3}
+  - {fileID: 12800000, guid: 3dbd5f1db0cbd944ba4c6ebbf441ea76, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
