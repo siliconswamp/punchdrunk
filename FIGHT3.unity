@@ -541,6 +541,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &43145939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3691607469562855728, guid: 04814b18d2b59fa4a8a1578212cf5bc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 43145927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &373340440 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1730255504, guid: 04814b18d2b59fa4a8a1578212cf5bc8,
@@ -1106,7 +1118,7 @@ MonoBehaviour:
   player_animate: {fileID: 1112401158}
   PlayerHPProgressBar: {fileID: 1301959825}
   PlayerStaminaProgressBar: {fileID: 1761207210}
-  output: {fileID: 1618007369}
+  output: {fileID: 43145939}
   atck1: {fileID: 1603186338}
   atck2: {fileID: 747976132}
   recover: {fileID: 477911692}
@@ -1612,18 +1624,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1618007369 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1730255511, guid: 04814b18d2b59fa4a8a1578212cf5bc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 43145927}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1694379585

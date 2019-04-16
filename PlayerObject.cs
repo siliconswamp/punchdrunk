@@ -47,7 +47,7 @@ public class PlayerObject : MonoBehaviour
         a1h = 5;//5
         a1s = 10;//increases stamina
         a2h = 10;
-        a2s = 15;//decreases stamina
+        a2s = 15;//decreases stamina 15
         recovh = 30;//increases health
         recovs = 30;//deacreases stamina
         specialh = 40;

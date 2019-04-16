@@ -225,10 +225,7 @@ RectTransform:
   - {fileID: 779915597}
   - {fileID: 1969328415}
   - {fileID: 469927445}
-  - {fileID: 1982759340}
-  - {fileID: 609023561}
-  - {fileID: 1115563612}
-  - {fileID: 1055165040}
+  - {fileID: 705869848}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,22 +431,25 @@ MonoBehaviour:
 
     as either Stephen Hawking or Albert Einstein,
 
-    all represented by a black hole,
+    all represented by a black hole, to prove your theory and
 
-    to prove your theory and contribute more knowledge than the other scientist towards
-    black holes.
+    contribute more knowledge than the other scientist
 
-    Once you have defeated a scientist,
+    towards black holes.
 
-    you will recieve a prize for your success,
+    Once you have defeated a scientist, you will recieve a prize
 
-    however, you must defeat all three scientists to win Event Horizon.
+    for your success, however, you must defeat
 
-    If at any point you lose, you must restart with the first scientist.
+    all three scientists to win Event Horizon. If at any point
 
-    Once you win Event Horizon as Hawking and prove Hawking Radiation,
+    you lose, you must restart with the first scientist.
 
-    you unlock Einstein and can proceed to prove the theory of General Relativity.
+    Once you win Event Horizon as Hawking and prove
+
+    Hawking Radiation, you unlock Einstein and can proceed
+
+    to prove the theory of General Relativity.
 
 
     Go prove some theories!'
@@ -475,10 +475,10 @@ RectTransform:
   m_Father: {fileID: 361187061}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 18.6}
-  m_SizeDelta: {x: 920, y: 300}
+  m_AnchorMin: {x: 0, y: 0.27833334}
+  m_AnchorMax: {x: 1, y: 0.78000003}
+  m_AnchoredPosition: {x: 0.5, y: 1.0999908}
+  m_SizeDelta: {x: 71, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &576881679
 GameObject:
@@ -606,12 +606,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 876117966}
-  m_Father: {fileID: 361187061}
-  m_RootOrder: 5
+  m_Father: {fileID: 705869848}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000015258789, y: 91.89999}
+  m_AnchoredPosition: {x: 0.000015258789, y: -158.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &609023562
@@ -704,6 +704,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609023560}
   m_CullTransparentMesh: 0
+--- !u!1 &705869847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705869848}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &705869848
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705869847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1982759340}
+  - {fileID: 609023561}
+  - {fileID: 1115563612}
+  - {fileID: 1055165040}
+  m_Father: {fileID: 361187061}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.41424057, y: 0}
+  m_AnchorMax: {x: 0.5724473, y: 0.25333333}
+  m_AnchoredPosition: {x: 5.5, y: 224}
+  m_SizeDelta: {x: -31, y: -52}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &779915596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,17 +1055,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055165036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1700398558}
-  m_Father: {fileID: 361187061}
-  m_RootOrder: 7
+  m_Father: {fileID: 705869848}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: -219.99997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1115563611
@@ -1060,12 +1099,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 296450868}
-  m_Father: {fileID: 361187061}
-  m_RootOrder: 6
+  m_Father: {fileID: 705869848}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000015258789, y: 60.9}
+  m_AnchoredPosition: {x: 0.000015258789, y: -189.09998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1115563613
@@ -1348,10 +1387,10 @@ RectTransform:
   m_Father: {fileID: 361187061}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0.82500005}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -23.47699}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: -668, y: -75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1969328416
 MonoBehaviour:
@@ -1421,17 +1460,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982759339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1378964688}
-  m_Father: {fileID: 361187061}
-  m_RootOrder: 4
+  m_Father: {fileID: 705869848}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 122.9}
+  m_AnchoredPosition: {x: 0, y: -127.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1982759341

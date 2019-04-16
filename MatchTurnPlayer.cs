@@ -27,6 +27,11 @@ public class MatchTurnPlayer : MonoBehaviour
     {
         Debug.Log("Player state: In player turn");
 
+        if (player.currentStamina < 0)
+        {
+            player.currentStamina = 0;
+        }
+
         if (player.currentHP <= 0)
         {
             player.isDead = true;
@@ -133,7 +138,9 @@ public class MatchTurnPlayer : MonoBehaviour
                 {
                     Debug.Log("Not enough player stamina");
                     output.text = "Not enough stamina to perform action!";
-                    yieldPTurn();
+                    atck2.interactable = false;
+                    // yieldPTurn();
+
                 }
                 else
                 {
@@ -154,24 +161,21 @@ public class MatchTurnPlayer : MonoBehaviour
             {
                 Debug.Log("Player Missed!");
                 output.text = "You missed!";
+                StartCoroutine(waitTime());
                 yieldPTurn();
             }
         }
 
         if(move == 3)
         {
-            /*if (player.currentStamina < player.baseStamina)
-        {
-            player.currentStamina += 30;
-        }*/
-
             if (rand > 10)
             {
                 if (canDoMove(30) == false)
                 {
                     Debug.Log("Not enough player stamina");
                     output.text = "Not enough stamina to perform action!";
-                    yieldPTurn();
+                    recover.interactable = false;
+                    //yieldPTurn();
                 }
                 else
                 {
@@ -189,6 +193,7 @@ public class MatchTurnPlayer : MonoBehaviour
             {
                 Debug.Log("Player Missed!");
                 output.text = "You missed!";
+                StartCoroutine(waitTime());
                 yieldPTurn();
             }
        
@@ -202,7 +207,8 @@ public class MatchTurnPlayer : MonoBehaviour
                 {
                     Debug.Log("Not enough player stamina");
                     output.text = "Not enough stamina to perform action!";
-                    yieldPTurn();
+                    special.interactable = false;
+                    //yieldPTurn();
                 }
                 else
                 {
@@ -279,6 +285,7 @@ public class MatchTurnPlayer : MonoBehaviour
         recover.interactable = true;
         special.interactable = true;
         menu.interactable = true;
+        output.text = "";
     }
     public void Update() {
         updateSize();
